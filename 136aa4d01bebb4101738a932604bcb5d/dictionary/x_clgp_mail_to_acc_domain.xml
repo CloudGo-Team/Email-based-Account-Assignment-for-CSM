@@ -2,7 +2,7 @@
     <element label="Customer Email Domain" max_length="40" name="x_clgp_mail_to_acc_domain" sizeclass="0" type="collection">
         <element hint="This value will be automatically applied to any Cases created via a matching email that would otherwise have had no Account value" label="Target account" mandatory="true" max_length="32" name="account" reference="customer_account" type="reference"/>
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
-        <element display="true" hint="The chosen Account will only apply to Cases created from email addresses whose full domain EXACTLY MATCHES this value." label="Email domain" mandatory="true" max_length="255" name="domain" type="string_full_utf8" unique="true"/>
+        <element display="true" hint="The chosen Account will only apply to Cases created from email addresses whose full domain EXACTLY MATCHES this value." label="Email domain" mandatory="true" max_length="255" name="domain" type="string" unique="true"/>
         <element hint="This field has no functional impact. Use it as a place to jot down notes to future administrators." label="Notes" max_length="1000" name="notes" type="string"/>
         <element default="javascript:current.getTableName();" label="Class" max_length="80" name="sys_class_name" type="sys_class_name"/>
         <index name="index" unique="true">

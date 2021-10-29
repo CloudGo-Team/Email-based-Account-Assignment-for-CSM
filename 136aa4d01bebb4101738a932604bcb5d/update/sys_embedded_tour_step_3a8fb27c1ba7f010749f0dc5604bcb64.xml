@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="INSERT_OR_UPDATE">
+        <action>false</action>
+        <action_event>next</action_event>
+        <action_target/>
+        <action_target_ref/>
+        <active>true</active>
+        <content><![CDATA[<p><strong>Congratulations!</strong></p>
+<p>You&#39;re now ready to get started for real.</p>
+<p><strong>Tip</strong>: Try adding the &#34;Customer Email Domain -&gt; Target account&#34; <em>Related List</em> to the <em>Account</em> form for extra convenience.</p>]]></content>
+        <guide display_value="Learn how to configure Customer Email Domains">1ea62ef81b67f010749f0dc5604bcb71</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name>Conclusion</name>
+        <options/>
+        <order>999</order>
+        <placement>bottom</placement>
+        <skippable>false</skippable>
+        <step_type>concl</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-29 21:04:00</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3a8fb27c1ba7f010749f0dc5604bcb64</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Conclusion</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_3a8fb27c1ba7f010749f0dc5604bcb64</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 21:40:35</sys_updated_on>
+        <target/>
+        <target_ref/>
+        <title/>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window/>
+    </sys_embedded_tour_step>
+    <sys_translated_text action="delete_multiple" query="documentkey=3a8fb27c1ba7f010749f0dc5604bcb64"/>
+</record_update>
