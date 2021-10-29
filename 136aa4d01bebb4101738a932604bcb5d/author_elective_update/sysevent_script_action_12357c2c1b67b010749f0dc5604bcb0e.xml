@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_script_action">
+    <sysevent_script_action action="DELETE">
+        <active>false</active>
+        <condition_script>Boolean(event.parm1)</condition_script>
+        <description/>
+        <event_name>email.read</event_name>
+        <name>Wait for email notification to process</name>
+        <order>100</order>
+        <script><![CDATA[// Sets up an event loop that waits for the original email notification to finish processing
+// If a Case was produced, we try to infer the Account field (if missing) based on the Customer Email Domain table
+(function(event){
+	// Get the email record
+	var emailId = event.parm1;
+	var emailGr = new GlideRecord('sys_email');
+	emailGr.get(event.parm1);
+	
+	// Don't do anything if the email record couldn't be found
+	if (!emailGr.isValidRecord()) return;
+	
+	// Don't do anything if the email was ignored or errored out
+	if (emailGr.state == 'ignored') return;
+	if (emailGr.state == 'error') return;
+	
+	// Replay this event with the same arguments one polling interval from now
+	gs.eventQueue(
+		'x_clgp_mail_to_acc.email_processing',
+		emailGr,
+		''
+	);
+})(event);]]></script>
+        <synchronous>false</synchronous>
+        <sys_class_name>sysevent_script_action</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-28 17:55:23</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>12357c2c1b67b010749f0dc5604bcb0e</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Wait for email notification to process</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sysevent_script_action_12357c2c1b67b010749f0dc5604bcb0e</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 17:52:12</sys_updated_on>
+    </sysevent_script_action>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</application>
+        <file_path/>
+        <instance_id>c0da2877db3eec102f68c597059619f7</instance_id>
+        <instance_name>ven04370</instance_name>
+        <name>sysevent_script_action_12357c2c1b67b010749f0dc5604bcb0e</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sysevent_script_action"&gt;&lt;sysevent_script_action action="INSERT_OR_UPDATE"&gt;&lt;active&gt;false&lt;/active&gt;&lt;condition_script&gt;Boolean(event.parm1)&lt;/condition_script&gt;&lt;description/&gt;&lt;event_name&gt;email.read&lt;/event_name&gt;&lt;name&gt;Wait for email notification to process&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[// Sets up an event loop that waits for the original email notification to finish processing
+// If a Case was produced, we try to infer the Account field (if missing) based on the Customer Email Domain table
+(function(event){
+	// Get the email record
+	var emailId = event.parm1;
+	var emailGr = new GlideRecord('sys_email');
+	emailGr.get(event.parm1);
+	
+	// Don't do anything if the email record couldn't be found
+	if (!emailGr.isValidRecord()) return;
+	
+	// Don't do anything if the email was ignored or errored out
+	if (emailGr.state == 'ignored') return;
+	if (emailGr.state == 'error') return;
+	
+	// Replay this event with the same arguments one polling interval from now
+	gs.eventQueue(
+		'x_clgp_mail_to_acc.email_processing',
+		emailGr,
+		''
+	);
+})(event);]]&gt;&lt;/script&gt;&lt;synchronous&gt;false&lt;/synchronous&gt;&lt;sys_class_name&gt;sysevent_script_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;Chris.Crockett@CloudGoServices.com&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-10-28 17:55:23&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;12357c2c1b67b010749f0dc5604bcb0e&lt;/sys_id&gt;&lt;sys_mod_count&gt;10&lt;/sys_mod_count&gt;&lt;sys_name&gt;Wait for email notification to process&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc"&gt;136aa4d01bebb4101738a932604bcb5d&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Email-based Account Assignment for CSM"&gt;136aa4d01bebb4101738a932604bcb5d&lt;/sys_scope&gt;&lt;sys_update_name&gt;sysevent_script_action_12357c2c1b67b010749f0dc5604bcb0e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;Chris.Crockett@CloudGoServices.com&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-10-29 17:52:12&lt;/sys_updated_on&gt;&lt;/sysevent_script_action&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1413643098</payload_hash>
+        <record_name>Wait for email notification to process</record_name>
+        <reverted_from/>
+        <source>136aa4d01bebb4101738a932604bcb60</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-29 17:52:12</sys_created_on>
+        <sys_id>59a3127c1b27f010749f0dc5604bcb05</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17ccd2e3d770000001</sys_recorded_at>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 17:52:12</sys_updated_on>
+        <type>Script Action</type>
+        <update_guid>91a3127c5c27f0101b6164638adf8605</update_guid>
+        <update_guid_history>91a3127c5c27f0101b6164638adf8605:-1413643098,1da25a20d9abb0109b4308de32af81b3:-787146011,c47052ec426bb010b43250ae67984929:-2115623161,8e5d822c446bb0105da7cc7d152671a3:517152276,913d8a2c0f6bb010d918ed86f719d600:781842024,cd7f9de894e7b010b5f0c3b3453a5867:-2015719514,323e59e835e7b01046cb7c735678181b:1599481020,a2dd95e874e7b01072c308e66d0251e2:-2147052588,e18d9da82be7b010987ba761ac189a4b:-825161134,b5dcd5a8bbe7b010d14db6048cdd3e6e:-518187211,5acac9a4f7a7b01003baf2e0dc2196de:919385326</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-29 17:55:28</sys_created_on>
+        <sys_db_object display_value="" name="sysevent_script_action">sysevent_script_action</sys_db_object>
+        <sys_id>047dd12f1fc34aa283ab5a0c2e63fb04</sys_id>
+        <sys_metadata>12357c2c1b67b010749f0dc5604bcb0e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Wait for email notification to process</sys_name>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_scope_delete display_value="">a119ec4638234ae4af8627a6fa2375e9</sys_scope_delete>
+        <sys_update_name>sysevent_script_action_12357c2c1b67b010749f0dc5604bcb0e</sys_update_name>
+        <sys_update_version display_value="sysevent_script_action_12357c2c1b67b010749f0dc5604bcb0e">59a3127c1b27f010749f0dc5604bcb05</sys_update_version>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 17:55:28</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

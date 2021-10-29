@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_clgp_mail_to_acc.getAccountIdFromDomain</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns the Sys ID of the associated account for the given email domain or null if none could be found</description>
+        <name>getAccountIdFromDomain</name>
+        <script><![CDATA[function getAccountIdFromDomain(emailDomain){
+	var domainGr = new GlideRecord('x_clgp_mail_to_acc_domain');
+	domainGr.addQuery('active', true);
+	domainGr.addQuery('domain', emailDomain);
+	domainGr.setLimit(1);
+	domainGr.query();
+	domainGr.next();
+	
+	return domainGr.isValidRecord()
+		? domainGr.account.toString()
+		: null;
+}
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-27 21:21:20</sys_created_on>
+        <sys_id>2ccea0d41bebb4101738a932604bcb4f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>getAccountIdFromDomain</sys_name>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sys_script_include_2ccea0d41bebb4101738a932604bcb4f</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-27 21:21:20</sys_updated_on>
+    </sys_script_include>
+</record_update>

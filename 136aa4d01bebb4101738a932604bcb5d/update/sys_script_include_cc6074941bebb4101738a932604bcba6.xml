@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_clgp_mail_to_acc.getDomainComponent</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Returns the full domain component of the email address&#13;
+e.g.: foo@bar.example.com =&gt; bar.example.com</description>
+        <name>getDomainComponent</name>
+        <script><![CDATA[function getDomainComponent(emailAddress){
+	return emailAddress.split('@').slice(1).join('@');
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-27 22:20:54</sys_created_on>
+        <sys_id>cc6074941bebb4101738a932604bcba6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>getDomainComponent</sys_name>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sys_script_include_cc6074941bebb4101738a932604bcba6</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-27 22:25:11</sys_updated_on>
+    </sys_script_include>
+</record_update>

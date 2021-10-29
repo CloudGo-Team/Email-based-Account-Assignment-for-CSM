@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="x_clgp_mail_to_acc.user" name="x_clgp_mail_to_acc.user">adbb20141bebb4101738a932604bcb6d</contains>
+        <role display_value="x_clgp_mail_to_acc.admin" name="x_clgp_mail_to_acc.admin">6f6b5eb01b67f010749f0dc5604bcbc4</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-29 18:28:33</sys_created_on>
+        <sys_id>f5fb52f01b67f010749f0dc5604bcb3d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_clgp_mail_to_acc.user.x_clgp_mail_to_acc.admin</sys_name>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sys_user_role_contains_f5fb52f01b67f010749f0dc5604bcb3d</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 18:28:33</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

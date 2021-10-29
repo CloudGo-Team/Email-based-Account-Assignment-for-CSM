@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="account" label="Target account" language="en" table="x_clgp_mail_to_acc_domain">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>account</element>
+            <help/>
+            <hint>This value will be automatically applied to any Cases created via a matching email that would otherwise have had no Account value</hint>
+            <label>Target account</label>
+            <language>en</language>
+            <name>x_clgp_mail_to_acc_domain</name>
+            <plural>Target accounts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+            <sys_created_on>2021-10-27 21:03:22</sys_created_on>
+            <sys_id>da3cec141bebb4101738a932604bcbb4</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>Target account</sys_name>
+            <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+            <sys_update_name>sys_documentation_x_clgp_mail_to_acc_domain_account_en</sys_update_name>
+            <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+            <sys_updated_on>2021-10-29 18:43:14</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

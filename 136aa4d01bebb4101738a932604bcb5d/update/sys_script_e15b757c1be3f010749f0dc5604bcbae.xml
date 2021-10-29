@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>sys_email</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition table="sys_email">stateCHANGESTOprocessed^instance!=^target_table!=^EQ<item display_value="Processed" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESTO" or="false" value="processed"/>
+            <item endquery="false" field="instance" goto="false" newquery="false" operator="!=" or="false" value=""/>
+            <item endquery="false" field="target_table" goto="false" newquery="false" operator="!=" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Apply Account for email-based Cases</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+	var caseTables = new GlideTableHierarchy('sn_customerservice_case').getAllExtensions();
+	var targetTable = current.target_table.toString();
+	// Only proceed if the target table is Case or an extension of it
+	if (caseTables.indexOf(targetTable) === -1) return;
+	
+	// We put off getting a reference to instance until now as a performance optimization
+	// Otherwise we'd be running a query every single time an email finishes processing!
+	var caseGr = current.instance.getRefRecord();
+	
+	// Only proceed if the case has the email channel set and has no account
+	if (caseGr.contact_type != 'email' || caseGr.account) return;
+	
+	var emailCreated = new GlideDateTime(current.sys_created_on);
+	var caseCreated = new GlideDateTime(caseGr.sys_created_on);
+	// Only proceed if the case was created AFTER the email arrived
+	if (caseCreated.before(emailCreated)) return;
+
+	// Try to figure out an account to use based on the Customer Email Domain table
+    var domainAccountId = getAccountIdFromEmail(getEmailFromEmailUser(current.user));
+
+    // Don't do anything if the account ID could not be ascertained
+    if (!domainAccountId) return;
+
+    // Set the Case account based on the sender's email domain
+    caseGr.account = domainAccountId;
+    caseGr.autoSysFields(false);
+    caseGr.update();
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-29 17:53:30</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e15b757c1be3f010749f0dc5604bcbae</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Apply Account for email-based Cases</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sys_script_e15b757c1be3f010749f0dc5604bcbae</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 17:53:30</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=e15b757c1be3f010749f0dc5604bcbae"/>
+</record_update>
