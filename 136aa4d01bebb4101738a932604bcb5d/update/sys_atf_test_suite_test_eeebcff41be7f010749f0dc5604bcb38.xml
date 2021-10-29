@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test_suite_test">
+    <sys_atf_test_suite_test action="INSERT_OR_UPDATE">
+        <abort_on_failure>true</abort_on_failure>
+        <order>100</order>
+        <sys_class_name>sys_atf_test_suite_test</sys_class_name>
+        <sys_created_by>Chris.Crockett@CloudGoServices.com</sys_created_by>
+        <sys_created_on>2021-10-29 21:58:13</sys_created_on>
+        <sys_id>eeebcff41be7f010749f0dc5604bcb38</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>c69e8d6c1ba7b010749f0dc5604bcb34</sys_name>
+        <sys_package display_value="Email-based Account Assignment for CSM" source="x_clgp_mail_to_acc">136aa4d01bebb4101738a932604bcb5d</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Email-based Account Assignment for CSM">136aa4d01bebb4101738a932604bcb5d</sys_scope>
+        <sys_update_name>sys_atf_test_suite_test_eeebcff41be7f010749f0dc5604bcb38</sys_update_name>
+        <sys_updated_by>Chris.Crockett@CloudGoServices.com</sys_updated_by>
+        <sys_updated_on>2021-10-29 21:58:22</sys_updated_on>
+        <test display_value="Account should be applied for cases created via email using Customer Email Domain table">c69e8d6c1ba7b010749f0dc5604bcb34</test>
+        <test_suite display_value="Email-based Account Assignment for CSM">9eea81a81ba7b010749f0dc5604bcb7f</test_suite>
+    </sys_atf_test_suite_test>
+</record_update>
